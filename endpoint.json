@@ -1,0 +1,59 @@
+{
+    "label": "Unbounce",
+    "name": "unbounce",
+    "apiVersion": "v1",
+    "internal": true,
+    "configurationType": "GLOBAL",
+    "deployment": {
+        "profiles":[
+            {
+                "name": "default",
+                "label": "Default",
+                "memory": 256,
+                "description": "Default configuration"
+            }
+        ],
+        "allowMultipleInstances": false
+    },
+    "icon48": "https://storage.googleapis.com/static.slingrs.io/platform/endpoints/unbounce.png",
+    "status": "ACTIVE",
+    "stores": [],
+    "events": [
+        {
+            "label": "Form submitted",
+            "name": "inboundFormSubmitted",
+            "description": "Happens when a landing page form is submitted by the user."
+        }
+    ],
+    "functions": [],
+    "configuration":[
+        {
+            "name": "validToken",
+            "label": "Valid token",
+            "description": "This is a random string you need to configure in the Unbounce form. See instructions below.",
+            "type": "text",
+            "required": true
+        },
+        {
+            "name": "webhook",
+            "label": "Webhook URL",
+            "type": "label",
+            "value": "@config.WEBHOOK_URL"
+        },
+        {
+            "name": "important",
+            "label": "Important!",
+            "value": "In the form you have to create a hidden field named 'token' with the value you set in 'Valid Token'. Otherwise you will get authorization errors and integration won't work.",
+            "type": "info",
+            "typeOptions": {
+                "alertType": "warning"
+            }
+        },
+        {
+            "name": "config",
+            "label": "Configuration",
+            "value": "You will need to configure the webhook integration in your Unbounce page and use the URL from the 'Webhook URL' field.",
+            "type": "info"
+        }
+    ]
+}
